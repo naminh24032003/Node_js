@@ -1,8 +1,20 @@
 const express = require('express')
+require('dotenv').config();
+const path = require('path');
+const configViewEngine = require('./config/viewEngine.js')
 const app = express()
-app.use('/static', express.static(path.join(__dirname, 'public')))
-app.get('/', function (req, res) {
-  res.send('anh minh trai ');
-})
+const port =process.env.PORT ;
+const hostname = process.env.HOSTNAME
+const webRoutes = require('./routes/web.js')
+/* **************************************************************** */
+
+/* config engine  */
+configViewEngine(app);
+/* Routes   */
+app.use('/' ,webRoutes)
+
+
+
+
 
 app.listen(8080)
