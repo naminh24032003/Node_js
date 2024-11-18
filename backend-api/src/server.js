@@ -4,7 +4,7 @@ const path = require('path');
 const configViewEngine = require('./config/viewEngine.js')
 const app = express()
 const port =process.env.PORT ;
-const hostname = process.env.HOSTNAME
+const hostname = process.env.HOST_NAME;
 const webRoutes = require('./routes/web.js')
 
 /* **************************************************************** */
@@ -17,8 +17,6 @@ configViewEngine(app);
 /* Routes   */
 app.use('/' ,webRoutes)
 
-
-
-
-
-app.listen(8080)
+app.listen(port, hostname, () => {
+  console.log(`Server is running at http://${hostname}:${port}`);
+});
