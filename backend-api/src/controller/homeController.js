@@ -1,18 +1,16 @@
  const conn = require('../config/database.js')
 const getHomepage = (req , res) => {
     //call model 
-    conn.query(
-        'select * from Users u ',
-        function (err , results, feilds) { 
-            console.log('result >>> ',results);
-        }
-      );
-    res.send('Hello woeld');
+    return res.render('anhminh.ejs')
 }
 const getAnhMinh = (req , res ) => {
     res.send('anh minh dep trai nhat qua dat ');
 }
+const postCreateUser = (req , res) => { 
+    res.send('create a new user ')
+}
 module.exports = { 
     getHomepage,
-    getAnhMinh
+    getAnhMinh,
+    postCreateUser
 }

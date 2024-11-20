@@ -6,6 +6,8 @@ const app = express()
 const port =process.env.PORT ;
 const hostname = process.env.HOST_NAME;
 const webRoutes = require('./routes/web.js')
+app.use(express.json())
+app.use(express.urlencoded({extended: true}))
 
 /* **************************************************************** */
 //test connecttion 
